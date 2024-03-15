@@ -77,7 +77,6 @@ return {
 		"clangd",
 
 		-- rust dev
-		"rustfmt",
 		"rust_analyzer",
 
 		-- go dev
