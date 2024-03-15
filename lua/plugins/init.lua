@@ -19,6 +19,40 @@ return {
       require "configs.lspconfig"
    end,
 },
+ {
+   "williamboman/mason.nvim",
+   opts = {
+	ensure_installed = {
+		-- lua stuff
+		"lua-language-server",
+		"stylua",
+
+		-- web dev
+		"css-lsp",
+		"html-lsp",
+		"typescript-language-server",
+		"deno",
+		"emmet-ls",
+		"json-lsp",
+		"prettier",
+
+		--cpp
+		"clangd",
+
+		-- rust dev
+		"rustfmt",
+		"rust_analyzer",
+
+		-- go dev
+		"gopls",
+		"gofumpt",
+
+		-- shell
+		"shfmt",
+		"shellcheck",
+	},
+    },
+  }, 
   {
 		"ray-x/go.nvim",
 		dependencies = { -- optional packages
