@@ -11,3 +11,7 @@ map("n", "<leader>fm", function()
 end, { desc = "File Format with conform" })
 
 map("i", "jk", "<ESC>", { desc = "Escape insert mode" })
+
+-- add custom map
+map("n", "<C-p>", "<cmd> Telescope find_files<CR>", { desc = "Find files" })
+map("n", "<C-d>", "<cmd> Telescope lsp_document_symbols<CR>", { desc = "Lsp document symbols" })
