@@ -12,7 +12,13 @@ return {
       git = { enable = true },
     },
   },
-
+{
+  "neovim/nvim-lspconfig",
+   config = function()
+      require("nvchad.configs.lspconfig").defaults()
+      require "configs.lspconfig"
+   end,
+},
   {
 		"ray-x/go.nvim",
 		dependencies = { -- optional packages
