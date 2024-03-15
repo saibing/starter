@@ -12,6 +12,11 @@ return {
       git = { enable = true },
     },
   },
+  
+  {
+    "folke/which-key.nvim",
+    enabled = false,
+  },
 {
   "neovim/nvim-lspconfig",
    config = function()
