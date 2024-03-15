@@ -19,6 +19,38 @@ return {
       require "configs.lspconfig"
    end,
 },
+	{
+    "nvim-treesitter/nvim-treesitter",
+    opts = {
+      ensure_installed = {
+        -- defaults 
+        "vim",
+        "lua",
+        "vimdoc",
+
+        -- web dev 
+        "html",
+        "css",
+        "javascript",
+        "typescript",
+        "tsx",
+
+       -- low level
+        "c",
+        "zig",
+		"c",
+		"cpp",
+		"markdown",
+		"markdown_inline",
+		"go",
+		"rust",
+		"python",
+		"java",
+				
+		"bash",
+      },
+    },
+  },
  {
    "williamboman/mason.nvim",
    opts = {
