@@ -4,10 +4,10 @@ local M = {}
 local highlights = require("configs.highlights")
 
 M.ui = {
-  theme = "nord",
+    theme = "nord",
 
-  hl_override = highlights.override,
-	hl_add = highlights.add,
+    hl_override = highlights.override,
+    hl_add = highlights.add,
 }
 
 return M
