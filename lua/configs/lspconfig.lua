@@ -48,7 +48,7 @@ local denols_option = {
     capabilities = capabilities,
     root_dir = util.root_pattern("deno.json", "deno.jsonc"),
 }
-lspconfig.denols.setup(denols_option)
+--lspconfig.denols.setup(denols_option)
 
 local tsserver_option = {
     on_attach = on_attach,
@@ -56,7 +56,7 @@ local tsserver_option = {
     capabilities = capabilities,
     root_dir = util.root_pattern("package.json"),
 }
--- lspconfig.tsserver.setup(tsserver_option)
+lspconfig.tsserver.setup(tsserver_option)
 
 local rt = require("rust-tools")
 rt.setup({
