@@ -35,7 +35,6 @@ local gopls_option = {
     capabilities = capabilities,
     cmd = { "gopls", "serve" },
     filetypes = { "go", "gomod" },
-    root_dir = util.root_pattern("go.work", "go.mod", ".git"),
     settings = {
         gopls = gopls_settings,
     },
@@ -46,7 +45,6 @@ local denols_option = {
     on_attach = on_attach,
     on_init = on_init,
     capabilities = capabilities,
-    root_dir = util.root_pattern("deno.json", "deno.jsonc"),
 }
 --lspconfig.denols.setup(denols_option)
 
@@ -54,7 +52,6 @@ local tsserver_option = {
     on_attach = on_attach,
     on_init = on_init,
     capabilities = capabilities,
-    root_dir = util.root_pattern("package.json"),
 }
 lspconfig.tsserver.setup(tsserver_option)
 
