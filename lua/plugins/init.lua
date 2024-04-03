@@ -143,7 +143,8 @@ return {
         "simrat39/symbols-outline.nvim",
         config = true,
     },
-    { "duane9/nvim-rg" },
+    { 
+        "duane9/nvim-rg",
         'mrcjkb/rustaceanvim',
         version = '^4', -- Recommended
         ft = { 'rust' },
