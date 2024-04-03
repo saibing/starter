@@ -84,6 +84,8 @@ return {
                 -- shell
                 "shfmt",
                 "shellcheck",
+                "bash-language-server",
+                "bash-debug-adapter",
             },
         },
     },
@@ -142,10 +144,9 @@ return {
         config = true,
     },
     { "duane9/nvim-rg" },
-    {
-        "simrat39/rust-tools.nvim",
-        dependencies = { "nvim-lua/plenary.nvim", "mfussenegger/nvim-dap" },
-        --ft = { "rust", "cargo" },
+        'mrcjkb/rustaceanvim',
+        version = '^4', -- Recommended
+        ft = { 'rust' },
     },
     { "dhruvasagar/vim-table-mode" },
     { "junegunn/vim-easy-align" },
