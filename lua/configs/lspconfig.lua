@@ -7,7 +7,7 @@ local capabilities = configs.capabilities
 local lspconfig = require("lspconfig")
 local util = require("lspconfig/util")
 
-local servers = { "html", "cssls", "jsonls", "clangd", "rust_analyzer", "jdtls" }
+local servers = { "html", "cssls", "jsonls", "clangd", "rust_analyzer", "jdtls", "bashls" }
 
 local lsp_option = {
     on_attach = on_attach,
@@ -55,11 +55,3 @@ local tsserver_option = {
 }
 -- lspconfig.tsserver.setup(tsserver_option)
 
-local rt = require("rust-tools")
-rt.setup({
-    server = {
-        capabilities = capabilities,
-        on_init = on_init,
-        on_attach = on_attach,
-    },
-})
