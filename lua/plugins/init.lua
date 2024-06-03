@@ -143,7 +143,7 @@ return {
         "simrat39/symbols-outline.nvim",
         config = true,
     },
-    { 
+    {
         "duane9/nvim-rg",
         'mrcjkb/rustaceanvim',
         version = '^4', -- Recommended
@@ -152,34 +152,35 @@ return {
     { "dhruvasagar/vim-table-mode" },
     { "junegunn/vim-easy-align" },
     {
-    "rebelot/kanagawa.nvim", -- neorg needs a colorscheme with treesitter support
-    config = function()
-        vim.cmd.colorscheme("kanagawa")
-    end,
+        "rebelot/kanagawa.nvim", -- neorg needs a colorscheme with treesitter support
+        config = function()
+            vim.cmd.colorscheme("kanagawa")
+        end,
     },
     {
-    "vhyrro/luarocks.nvim",
-    priority = 1000,
-    config = true,
+        "vhyrro/luarocks.nvim",
+        priority = 1000,
+        config = true,
     },
     {
-    "nvim-neorg/neorg",
-    dependencies = { "luarocks.nvim" },
-    version = "*", -- Pin Neorg to the latest stable release
-    config = function()
-      require("neorg").setup {
-        load = {
-          ["core.defaults"] = {},
-          ["core.concealer"] = {},
-          ["core.dirman"] = {
-            config = {
-              workspaces = {
-                notes = "~/notes",
-              },
-              default_workspace = "notes",
-            },
-          },
-        },
-      }
+        "nvim-neorg/neorg",
+        dependencies = { "luarocks.nvim" },
+        version = "*", -- Pin Neorg to the latest stable release
+        config = function()
+            require("neorg").setup {
+                load = {
+                    ["core.defaults"] = {},
+                    ["core.concealer"] = {},
+                    ["core.dirman"] = {
+                        config = {
+                            workspaces = {
+                                notes = "~/notes",
+                            },
+                            default_workspace = "notes",
+                        },
+                    },
+                },
+            }
+        end
     }
 }
