@@ -156,31 +156,5 @@ return {
         config = function()
             vim.cmd.colorscheme("kanagawa")
         end,
-    },
-    {
-        "vhyrro/luarocks.nvim",
-        priority = 1000,
-        config = true,
-    },
-    {
-        "nvim-neorg/neorg",
-        dependencies = { "luarocks.nvim" },
-        version = "*", -- Pin Neorg to the latest stable release
-        config = function()
-            require("neorg").setup {
-                load = {
-                    ["core.defaults"] = {},
-                    ["core.concealer"] = {},
-                    ["core.dirman"] = {
-                        config = {
-                            workspaces = {
-                                notes = "~/notes",
-                            },
-                            default_workspace = "notes",
-                        },
-                    },
-                },
-            }
-        end
     }
 }
