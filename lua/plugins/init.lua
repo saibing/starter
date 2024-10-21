@@ -115,10 +115,10 @@ return {
     --build = ':lua require("go.install").update_all_sync()', -- if you need to install/update all binaries
   },
 
-  { "kevinhwang91/nvim-bqf",  lazy = false },
+  { "kevinhwang91/nvim-bqf", lazy = false },
   { "sindrets/diffview.nvim", dependencies = { "nvim-lua/plenary.nvim" }, lazy = false },
-  { "windwp/nvim-spectre",    lazy = false },
-  --{ "github/copilot.vim", lazy = false},
+  { "windwp/nvim-spectre", lazy = false },
+  { "github/copilot.vim", lazy = false },
   {
     "folke/trouble.nvim",
     config = true,
@@ -156,16 +156,16 @@ return {
   },
   {
     "duane9/nvim-rg",
-    'mrcjkb/rustaceanvim',
-    version = '^4', -- Recommended
-    ft = { 'rust' },
+    "mrcjkb/rustaceanvim",
+    version = "^4", -- Recommended
+    ft = { "rust" },
   },
   { "dhruvasagar/vim-table-mode" },
   { "junegunn/vim-easy-align" },
   {
     "rebelot/kanagawa.nvim", -- neorg needs a colorscheme with treesitter support
     config = function()
-      vim.cmd.colorscheme("kanagawa")
+      vim.cmd.colorscheme "kanagawa"
     end,
-  }
+  },
 }
