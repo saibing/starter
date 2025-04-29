@@ -1,7 +1,7 @@
 -- load defaults i.e lua_lsp
 require("nvchad.configs.lspconfig").defaults()
 
-local lspconfig = require "lspconfig"
+local lspconfig = vim.lsp.config
 
 -- EXAMPLE
 local servers = { "html", "cssls", "jsonls", "clangd", "rust_analyzer", "jdtls", "bashls", "pyright" }
@@ -46,7 +46,7 @@ local gopls_option = {
 }
 lspconfig.gopls.setup(gopls_option)
 
-local ts_ls = os.getenv("TS_LS")
+local ts_ls = os.getenv "TS_LS"
 
 if ts_ls == "ts_ls" then
   lspconfig.ts_ls.setup {

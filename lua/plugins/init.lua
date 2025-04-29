@@ -6,13 +6,6 @@ return {
   },
 
   -- These are some examples, uncomment them if you want to see them work!
-  {
-    "neovim/nvim-lspconfig",
-    config = function()
-      require "configs.lspconfig"
-    end,
-  },
-
   -- {
   -- 	"nvim-treesitter/nvim-treesitter",
   -- 	opts = {
@@ -105,7 +98,6 @@ return {
     "ray-x/go.nvim",
     dependencies = { -- optional packages
       "ray-x/guihua.lua",
-      "neovim/nvim-lspconfig",
       "nvim-treesitter/nvim-treesitter",
     },
     config = function()
