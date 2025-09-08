@@ -7,8 +7,18 @@ local o = vim.o
 o.mouse = ""
 o.shiftwidth = 4
 o.tabstop = 4
+o.softtabstop = 4
 o.backup = false
 o.swapfile = false
+
+vim.api.nvim_create_autocmd("FileType", {
+  pattern = "python,lua",
+  callback = function()
+    vim.bo.shiftwidth = 2
+    vim.bo.tabstop = 2
+    vim.bo.softtabstop = 2
+  end,
+})
 
 vim.cmd [[set guifont=SauceCodePro\ Nerd\ Font:h11]]
 vim.cmd [[command -nargs=1 Sym Telescope lsp_workspace_symbols query=<args>]]

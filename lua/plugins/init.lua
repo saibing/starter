@@ -117,22 +117,22 @@ return {
   { "kevinhwang91/nvim-bqf", lazy = false },
   { "sindrets/diffview.nvim", dependencies = { "nvim-lua/plenary.nvim" }, lazy = false },
   { "windwp/nvim-spectre", lazy = false },
-  { "github/copilot.vim", lazy = false },
-  {
-    "CopilotC-Nvim/CopilotChat.nvim",
-    branch = "main",
-    dependencies = {
-      { "github/copilot.vim" }, -- or github/copilot.vim
-      { "nvim-lua/plenary.nvim" }, -- for curl, log wrapper
-    },
-    build = "make tiktoken", -- Only on MacOS or Linux
-    opts = {
-      debug = true, -- Enable debugging
-      -- See Configuration section for rest
-    },
-    lazy = false,
-    -- See Commands section for default commands if you want to lazy load on them
-  },
+  --{ "github/copilot.vim", lazy = false },
+  --{
+  --    "CopilotC-Nvim/CopilotChat.nvim",
+  --    branch = "main",
+  --    dependencies = {
+  --      { "github/copilot.vim" }, -- or github/copilot.vim
+  --      { "nvim-lua/plenary.nvim" }, -- for curl, log wrapper
+  --    },
+  --    build = "make tiktoken", -- Only on MacOS or Linux
+  --    opts = {
+  --      debug = true, -- Enable debugging
+  --      -- See Configuration section for rest
+  --    },
+  --    lazy = false,
+  --    -- See Commands section for default commands if you want to lazy load on them
+  --  },
   {
     "folke/trouble.nvim",
     opts = {}, -- for default options, refer to the configuration section for custom setup.
