@@ -117,7 +117,7 @@ return {
   { "kevinhwang91/nvim-bqf", lazy = false },
   { "sindrets/diffview.nvim", dependencies = { "nvim-lua/plenary.nvim" }, lazy = false },
   { "windwp/nvim-spectre", lazy = false },
-  --{ "github/copilot.vim", lazy = false },
+  { "github/copilot.vim", lazy = false },
   --{
   --    "CopilotC-Nvim/CopilotChat.nvim",
   --    branch = "main",
