@@ -203,7 +203,7 @@ return {
   {
     "duane9/nvim-rg",
     "mrcjkb/rustaceanvim",
-    version = "^4", -- Recommended
+    version = "^7", -- Recommended
     ft = { "rust" },
   },
   { "dhruvasagar/vim-table-mode" },
