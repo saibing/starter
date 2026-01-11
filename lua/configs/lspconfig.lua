@@ -2,6 +2,7 @@
 require("nvchad.configs.lspconfig").defaults()
 
 local servers = { "html", "cssls", "jsonls", "gopls", "clangd", "rust_analyzer", "jdtls", "bashls", "pyright" }
+--local servers = { "html", "cssls", "jsonls", "gopls", "clangd", "jdtls", "bashls", "pyright" }
 
 local ts_ls = os.getenv "TS_LS"
 

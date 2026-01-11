@@ -205,6 +205,15 @@ return {
     "mrcjkb/rustaceanvim",
     version = "^7", -- Recommended
     ft = { "rust" },
+    lazy = false,
+  },
+  {
+    "saecki/crates.nvim",
+    tag = "stable",
+    event = { "BufRead Cargo.toml" },
+    config = function()
+      require("crates").setup()
+    end,
   },
   { "dhruvasagar/vim-table-mode" },
   { "junegunn/vim-easy-align" },
