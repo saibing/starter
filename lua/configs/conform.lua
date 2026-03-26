@@ -4,7 +4,7 @@ local options = {
     css = { "prettierd", "prettier", stop_after_first = true },
     html = { "prettierd", "prettier", stop_after_first = true },
     -- Conform will run multiple formatters sequentially
-    python = { "isort", "black", stop_after_first = true },
+    python = { "ruff", stop_after_first = true },
     -- You can customize some of the format options for the filetype (:help conform.format)
     rust = { "rustfmt", lsp_format = "fallback" },
     -- Conform will run the first available formatter
