@@ -1,7 +1,8 @@
 -- load defaults i.e lua_lsp
 require("nvchad.configs.lspconfig").defaults()
 
-local servers = { "html", "cssls", "jsonls", "gopls", "clangd", "rust_analyzer", "jdtls", "bashls", "ty", "tsgo" }
+local servers =
+  { "html", "cssls", "jsonls", "gopls", "clangd", "rust_analyzer", "jdtls", "bashls", "ty", "tsgo", "zls" }
 
 vim.lsp.enable(servers)
 
@@ -11,7 +12,15 @@ vim.lsp.enable(servers)
 vim.lsp.config("lua_ls", {
   settings = {
     Lua = {
-      hint = { enable = true },
+      hint = {
+        enable = true, -- Enable inlay hints globally
+        paramName = "All", -- Parameter name hints: "All" | "Literal" | "Disable"
+        paramType = true, -- Function parameter type hints
+        setType = true, -- Assignment type hints
+        arrayIndex = "Auto", -- Array index hints: "Enable" | "Auto" | "Disable"
+        await = true, -- Await hints
+        semicolon = "All", -- Semicolon hints: "All" | "SameLine" | "Disable"
+      },
     },
   },
 })
@@ -113,10 +122,28 @@ vim.lsp.config("jdtls", {
     java = {
       inlayHints = {
         parameterNames = {
-          enabled = "all",
+          enabled = "all", -- "none" | "literals" | "all"
           exclusions = { "this" },
         },
+        variableTypes = { enabled = true }, -- Variable type hints
+        parameterTypes = { enabled = true }, -- Parameter type hints
       },
+    },
+  },
+})
+
+--zls settings
+vim.lsp.config("zls", {
+  settings = {
+    zls = {
+      enable_inlay_hints = true, -- Global enable
+      inlay_hints_show_builtin = true, -- Show builtin function hints
+      inlay_hints_show_parameter_name = true, -- Show parameter name hints
+      inlay_hints_show_variable_type_hints = true, -- Show variable type hints
+      inlay_hints_show_struct_literal_field_type = true, -- Show struct literal field type hints
+      inlay_hints_exclude_single_argument = true, -- Exclude single argument hints
+      inlay_hints_hide_redundant_param_names = false, -- Hide redundant parameter names
+      inlay_hints_hide_redundant_param_names_last_token = false, -- Hide redundant param names for last token
     },
   },
 })
