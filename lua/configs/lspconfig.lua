@@ -1,16 +1,7 @@
 -- load defaults i.e lua_lsp
 require("nvchad.configs.lspconfig").defaults()
 
-local servers = { "html", "cssls", "jsonls", "gopls", "clangd", "rust_analyzer", "jdtls", "bashls", "ty" }
---local servers = { "html", "cssls", "jsonls", "gopls", "clangd", "jdtls", "bashls", "pyright" }
-
-local ts_ls = os.getenv "TS_LS"
-
-if ts_ls == "denols" then
-  table.insert(servers, "denols")
-else
-  table.insert(servers, "ts_ls")
-end
+local servers = { "html", "cssls", "jsonls", "gopls", "clangd", "rust_analyzer", "jdtls", "bashls", "ty", "tsgo" }
 
 vim.lsp.enable(servers)
 
@@ -42,13 +33,14 @@ vim.lsp.config("gopls", {
   settings = {
     gopls = {
       hints = {
-        rangeVariableTypes = true,
-        parameterNames = true,
-        constantValues = true,
-        assignVariableTypes = true,
-        compositeLiteralFields = true,
-        compositeLiteralTypes = true,
-        functionTypeParameters = true,
+        assignVariableTypes = true, -- Variable type hints in assignments
+        compositeLiteralFields = true, -- Composite literal field name hints
+        compositeLiteralTypes = true, -- Composite literal type hints
+        constantValues = true, -- Constant value hints (iota)
+        functionTypeParameters = true, -- Generic function type parameter hints
+        ignoredError = true, -- Implicitly discarded error hints (experimental)
+        parameterNames = true, -- Function call parameter name hints
+        rangeVariableTypes = true, -- Range statement variable type hints
       },
     },
   },
@@ -59,10 +51,26 @@ vim.lsp.config("rust_analyzer", {
   settings = {
     ["rust-analyzer"] = {
       inlayHints = {
-        chainingHints = { enable = true },
-        closingBraceHints = { enable = true, minLines = 25 },
-        parameterHints = { enable = true },
-        typeHints = { enable = true },
+        -- Type related
+        typeHints = { enable = true }, -- Variable type hints
+        chainingHints = { enable = true }, -- Method chain type hints
+        closureReturnTypeHints = { enable = "never" }, -- "never" | "always"
+        closureCaptureHints = { enable = false }, -- Closure capture hints
+        -- Parameter related
+        parameterHints = { enable = true }, -- Function parameter hints
+        -- Brace related
+        closingBraceHints = { enable = true, minLines = 25 }, -- Closing brace hints
+        -- Other
+        bindingModeHints = { enable = false }, -- Binding mode hints
+        discriminantHints = { enable = "never" }, -- Enum discriminant hints
+        expressionAdjustmentHints = { enable = "never" }, -- Type adjustment hints
+        implicitDrops = { enable = false }, -- Implicit drop hints
+        lifetimeElisionHints = { enable = "never" }, -- Lifetime elision hints
+        genericParameterHints = {
+          type = { enable = false },
+          lifetime = { enable = false },
+          const = { enable = false },
+        },
       },
     },
   },
@@ -83,43 +91,17 @@ vim.lsp.config("clangd", {
   },
 })
 
---denols settings
-vim.lsp.config("denols", {
-  settings = {
-    deno = {
-      inlayHints = {
-        parameterNames = { enabled = "all", suppressWhenArgumentMatchesName = true },
-        parameterTypes = { enabled = true },
-        variableTypes = { enabled = true, suppressWhenTypeMatchesName = true },
-        propertyDeclarationTypes = { enabled = true },
-        functionLikeReturnTypes = { enable = true },
-        enumMemberValues = { enabled = true },
-      },
-    },
-  },
-})
-
---tsserver settings
-vim.lsp.config("tsserver", {
+--tsgo settings
+vim.lsp.config("tsgo", {
   settings = {
     typescript = {
       inlayHints = {
-        includeInlayParameterNameHints = "all",
-        includeInlayFunctionParameterTypeHints = true,
-        includeInlayVariableTypeHints = true,
-        includeInlayPropertyDeclarationTypeHints = true,
-        includeInlayFunctionLikeReturnTypeHints = true,
-        includeInlayEnumMemberValueHints = true,
-      },
-    },
-    javascript = {
-      inlayHints = {
-        includeInlayParameterNameHints = "all",
-        includeInlayFunctionParameterTypeHints = true,
-        includeInlayVariableTypeHints = true,
-        includeInlayPropertyDeclarationTypeHints = true,
-        includeInlayFunctionLikeReturnTypeHints = true,
-        includeInlayEnumMemberValueHints = true,
+        parameterNames = { enabled = "literals" },
+        parameterTypes = { enabled = true },
+        variableTypes = { enabled = true },
+        propertyDeclarationTypes = { enabled = true },
+        functionLikeReturnTypes = { enabled = true },
+        enumMemberValues = { enabled = true },
       },
     },
   },

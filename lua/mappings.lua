@@ -9,12 +9,13 @@ map("i", "jk", "<ESC>")
 
 -- map({ "n", "i", "v" }, "<C-s>", "<cmd> w <cr>")
 map("n", "<leader>fm", function()
-    require("conform").format()
+  require("conform").format()
 end, { desc = "File Format with conform" })
 
 -- telescope keymap
 map("n", "<C-p>", "<cmd> Telescope find_files<CR>", { desc = "Find files" })
 map("n", "<C-d>", "<cmd> Telescope lsp_document_symbols<CR>", { desc = "Lsp document symbols" })
+map("n", "<C-s>", "<cmd> Telescope lsp_dynamic_workspace_symbols<CR>", { desc = "Lsp workspace symbols" })
 
 -- terminal keymap
 map("t", "<Esc>", "<C-\\><C-n>", { desc = "escape terminal mode" })

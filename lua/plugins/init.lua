@@ -36,32 +36,29 @@ return {
     "nvim-treesitter/nvim-treesitter",
     opts = {
       ensure_installed = {
-        -- defaults
         "vim",
         "lua",
         "vimdoc",
 
+        "bash",
+        "diff",
+
+        "c",
+        "cpp",
+        "rust",
+        "zig",
+
+        "go",
+        "java",
+        "python",
         -- web dev
         "html",
         "css",
         "javascript",
         "typescript",
         "tsx",
-
-        -- low level
-        "c",
-        "zig",
-        "c",
-        "cpp",
         "markdown",
         "markdown_inline",
-        "go",
-        "rust",
-        "python",
-        "java",
-
-        "bash",
-        "diff",
       },
     },
   },
@@ -69,28 +66,35 @@ return {
     "williamboman/mason.nvim",
     opts = {
       ensure_installed = {
-        -- lua stuff
+        -- lua
         "lua-language-server",
         "stylua",
 
-        -- web dev
+        -- web
+        "tsgo",
         "css-lsp",
         "html-lsp",
-        "typescript-language-server",
-        "deno",
-        "emmet-ls",
         "json-lsp",
         "prettier",
+        "prettierd",
 
-        --cpp
+        -- c/c++
         "clangd",
+        "clang-format",
 
-        -- rust dev
+        -- rust
         "rust_analyzer",
 
-        -- go dev
+        -- go
         "gopls",
         "gofumpt",
+
+        -- python
+        "ty",
+        "ruff",
+
+        -- java dev
+        "jtdls",
 
         -- shell
         "shfmt",
@@ -202,10 +206,7 @@ return {
   },
   {
     "duane9/nvim-rg",
-    "mrcjkb/rustaceanvim",
-    version = "^7", -- Recommended
-    ft = { "rust" },
-    lazy = false,
+    event = { "CmdlineEnter" },
   },
   {
     "saecki/crates.nvim",
