@@ -1,8 +1,7 @@
 -- load defaults i.e lua_lsp
 require("nvchad.configs.lspconfig").defaults()
 
-local servers =
-  { "html", "cssls", "jsonls", "gopls", "clangd", "rust_analyzer", "jdtls", "bashls", "ty", "tsgo", "zls" }
+local servers = { "html", "cssls", "jsonls", "gopls", "clangd", "rust_analyzer", "jdtls", "bashls", "ty", "tsc", "zls" }
 
 vim.lsp.enable(servers)
 
@@ -100,8 +99,8 @@ vim.lsp.config("clangd", {
   },
 })
 
---tsgo settings
-vim.lsp.config("tsgo", {
+--tsc settings
+vim.lsp.config("tsc", {
   settings = {
     typescript = {
       inlayHints = {

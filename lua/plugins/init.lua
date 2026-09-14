@@ -71,7 +71,7 @@ return {
         "stylua",
 
         -- web
-        "tsgo",
+        "tsc",
         "css-lsp",
         "html-lsp",
         "json-lsp",
@@ -93,7 +93,7 @@ return {
         "ty",
         "ruff",
 
-        -- java dev
+        -- java
         "jtdls",
 
         -- shell
