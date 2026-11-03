@@ -3,8 +3,6 @@ require("nvchad.configs.lspconfig").defaults()
 
 local servers = { "html", "cssls", "jsonls", "gopls", "clangd", "rust_analyzer", "jdtls", "bashls", "ty", "tsc", "zls" }
 
-vim.lsp.enable(servers)
-
 -- reference https://github.com/MysticalDevil/inlay-hints.nvim
 
 --lua_ls settings
@@ -152,3 +150,5 @@ vim.lsp.config("zls", {
     },
   },
 })
+
+vim.lsp.enable(servers)
