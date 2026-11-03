@@ -58,6 +58,12 @@ vim.lsp.config("gopls", {
 vim.lsp.config("rust_analyzer", {
   settings = {
     ["rust-analyzer"] = {
+      checkOnSave = false,
+      cargo = {
+        buildScripts = { enable = false }, -- 启动时不跑 cargo check 建构建脚本/过程宏
+        targetDir = false, -- 可选：RA 用自己的 target 子目录，不锁你的 target/
+      },
+      procMacro = { enable = false }, -- buildScripts 关了，这个也跟着关
       inlayHints = {
         -- Type related
         typeHints = { enable = true }, -- Variable type hints
