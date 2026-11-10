@@ -66,6 +66,8 @@ return {
     "williamboman/mason.nvim",
     opts = {
       ensure_installed = {
+        -- copilot
+        -- "copilot-language-server",
         -- lua
         "lua-language-server",
         "stylua",
@@ -122,6 +124,17 @@ return {
   { "sindrets/diffview.nvim", dependencies = { "nvim-lua/plenary.nvim" }, lazy = false },
   { "windwp/nvim-spectre", lazy = false },
   { "github/copilot.vim", lazy = false },
+  --{
+  -- "zbirenbaum/copilot.lua",
+  --requires = {
+  --  "copilotlsp-nvim/copilot-lsp", -- (optional) for NES functionality
+  --},
+  --cmd = "Copilot",
+  --event = "InsertEnter",
+  --config = function()
+  --  require("copilot").setup {}
+  --end,
+  --},
   --{
   --    "CopilotC-Nvim/CopilotChat.nvim",
   --    branch = "main",
