@@ -193,8 +193,19 @@ return {
     lazy = true,
   },
   {
+    "mfussenegger/nvim-dap",
+    dependencies = {
+      "rcarriga/nvim-dap-ui",
+      "theHamsta/nvim-dap-virtual-text",
+      "nvim-telescope/telescope-dap.nvim",
+    },
+  },
+  {
     "rcarriga/nvim-dap-ui",
-    dependencies = { "mfussenegger/nvim-dap" },
+    dependencies = {
+      "mfussenegger/nvim-dap",
+      "nvim-neotest/nvim-nio",
+    },
   },
   {
     "theHamsta/nvim-dap-virtual-text",
@@ -208,6 +219,7 @@ return {
     "folke/todo-comments.nvim",
     config = true,
   },
+  { "nvim-neotest/nvim-nio" },
   --{
   --	"akinsho/toggleterm.nvim",
   --	version = "*",
