@@ -199,6 +199,107 @@ return {
       "theHamsta/nvim-dap-virtual-text",
       "nvim-telescope/telescope-dap.nvim",
     },
+    keys = {
+      -- 设置常用快捷键（也可使用你的习惯按键）
+      {
+        "<F5>",
+        function()
+          require("dap").continue()
+        end,
+        desc = "Debug: 开始/继续",
+      },
+      {
+        "<F10>",
+        function()
+          require("dap").step_over()
+        end,
+        desc = "Debug: 单步跳过",
+      },
+      {
+        "<F11>",
+        function()
+          require("dap").step_into()
+        end,
+        desc = "Debug: 单步进入",
+      },
+      {
+        "<F12>",
+        function()
+          require("dap").step_out()
+        end,
+        desc = "Debug: 单步跳出",
+      },
+      {
+        "<leader>b",
+        function()
+          require("dap").toggle_breakpoint()
+        end,
+        desc = "Debug: 切换断点",
+      },
+      {
+        "<leader>du",
+        function()
+          require("dapui").toggle()
+        end,
+        desc = "Debug: 开关 UI 面板",
+      },
+    },
+    config = function()
+      local dap = require "dap"
+      local dapui = require "dapui"
+
+      -- 1. 初始化 UI，并设置启动调试时自动打开面板
+      dapui.setup()
+      dap.listeners.after.event_initialized["dapui_config"] = function()
+        dapui.open()
+      end
+      dap.listeners.before.event_terminated["dapui_config"] = function()
+        dapui.close()
+      end
+      dap.listeners.before.event_exited["dapui_config"] = function()
+        dapui.close()
+      end
+
+      -- 2. 配置 Mason 安装的 js-debug-adapter 适配器
+      dap.adapters["pwa-node"] = {
+        type = "server",
+        host = "localhost",
+        port = "${port}",
+        executable = {
+          command = "node",
+          args = {
+            -- 自动获取 Mason 的安装路径
+            vim.fn.stdpath "data" .. "/mason/packages/js-debug-adapter/js-debug/src/dapDebugServer.js",
+            "${port}",
+          },
+        },
+      }
+
+      -- 3. 为 TypeScript 和 JavaScript 绑定调试启动方案
+      for _, language in ipairs { "typescript", "javascript" } do
+        dap.configurations[language] = {
+          {
+            type = "pwa-node",
+            request = "launch",
+            name = "启动当前 TS 文件 (使用 tsx)",
+            program = "${file}",
+            cwd = "${workspaceFolder}",
+            runtimeExecutable = "npx",
+            runtimeArgs = { "tsx" }, -- 需要本地或全局装有 tsx 或 ts-node
+            sourceMaps = true,
+            console = "integratedTerminal",
+          },
+          {
+            type = "pwa-node",
+            request = "attach",
+            name = "附加到已运行的 Node 进程",
+            processId = require("dap.utils").pick_process,
+            cwd = "${workspaceFolder}",
+            sourceMaps = true,
+          },
+        }
+      end
+    end,
   },
   {
     "rcarriga/nvim-dap-ui",
