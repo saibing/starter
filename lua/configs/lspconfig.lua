@@ -1,8 +1,7 @@
 -- load defaults i.e lua_lsp
 require("nvchad.configs.lspconfig").defaults()
 
-local servers =
-  { "copilot", "html", "cssls", "jsonls", "gopls", "clangd", "rust_analyzer", "jdtls", "bashls", "ty", "tsc", "zls" }
+local servers = { "html", "cssls", "jsonls", "gopls", "clangd", "rust_analyzer", "jdtls", "bashls", "ty", "tsc", "zls" }
 
 -- reference https://github.com/MysticalDevil/inlay-hints.nvim
 
